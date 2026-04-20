@@ -59,7 +59,7 @@ class TodoList {
         let list = [];
         if (this.SHOULD_USE_LOCAL_STORAGE) {
             const getLocalStorageData = localStorage.getItem("New Todo");
-            if (getLocalStorageData == null) {
+            if (getLocalStorageData === null) {
                 list = [];
             } else {
                 list = JSON.parse(getLocalStorageData).map((todoItem) => new Todo(todoItem.name));

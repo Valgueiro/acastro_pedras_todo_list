@@ -12,7 +12,7 @@ const todoList = new TodoList();
 // onkeyup event
 INPUT_BOX.onkeyup = () => {
   let userEnteredValue = INPUT_BOX.value; //getting user entered value
-  if (userEnteredValue.trim() != 0) {
+  if (userEnteredValue.trim() !== '') {
     //if the user value isn't only spaces
     ADD_BTN.classList.add("active"); //active the add button
   } else {

@@ -1,5 +1,5 @@
-const assert = require('assert');
-const { Given, When, Then } = require('@cucumber/cucumber');
+import assert from 'assert';
+import { Given, When, Then } from '@cucumber/cucumber';
 
 function isItFriday(today) {
     if (today === "Friday") {
