@@ -2,19 +2,20 @@
   "name": "todo-list-testing",
   "version": "1.0.0",
   "description": "1. Create the folder 2.",
-  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "qunit ./tests/*",
-    "start": "browser-sync start --config config/bs-config.cjs ./features -r ./features/step_definitions",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "feature-tests": "cucumber-js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@cucumber/cucumber": "^12.8.1",
-    "browser-sync": "^3.0.4",
-    "qunit": "^2.25.0"
+    "qunit": "^2.25.0",
+    "vite": "^6.0.0"
   },
   "dependencies": {}
 }
