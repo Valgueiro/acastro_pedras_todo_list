@@ -1,39 +1,81 @@
-# ACASTRO Pedras e Pedregulhos todo list
+# ACASTRO Pedras e Pedregulhos — Todo List
 
-Sejam bem-vindos!! Este é o aplicativo todo list da empresa ACASTRO Pedras e Pedregulhos.
+Aplicativo de lista de tarefas da empresa **ACASTRO Pedras e Pedregulhos**.
 
 ![Home page](./assets/homepage.png)
 
-Este repositório é um fork do repositório [js-unit-tests-adventure](https://github.com/Valgueiro/js-unit-tests-adventure).
+---
 
+## Pré-requisitos
 
-## Requisitos para utilizar:
-1. Ter o node + npm instalado na máquina (https://nodejs.org/pt-br/download/)
-2. (Opcional, mas bem útil) instalar o VSCode (https://code.visualstudio.com/download)
+- **Node.js 24+** — [download](https://nodejs.org/pt-br/download/)
 
-## Para rodar o exemplo:
-1. Dentro da pasta, abra o terminal e rode o seguinte comando para instalar as dependências:
-```bash
-$ npm install
-```
+---
 
-2. Para iniciar o servidor, basta rodar:
+## Instalação
 
 ```bash
-$ npm start
+npm install
 ```
 
-3. Assim que iniciar, ele deve abrir uma aba do seu navegador favorito. Se não, acesse:
-   * http://localhost:3000 - para a aplicação de Lista de Tarefas (TODO list)
-   * http://localhost:3000/tests/index.html - para os testes 
+---
 
+## Desenvolvimento
 
-4. Para rodar os testes unitários na linha de comando:
 ```bash
-$ npm run test
+npm start
 ```
 
-4. Para rodar os testes de integração na linha de comando:
+Abre o servidor em **http://localhost:3000** com live reload — qualquer alteração nos arquivos recarrega o navegador automaticamente.
+
+---
+
+## Testes
+
 ```bash
-$ npm run feature-tests
+npm test               # testes unitários (QUnit)
+npm run feature-tests  # testes de comportamento (Cucumber)
 ```
+
+---
+
+## Build de produção
+
+```bash
+npm run build
+```
+
+Gera a pasta `dist/` com os arquivos otimizados e prontos para servir em qualquer servidor HTTP estático.
+
+Para verificar o build localmente antes de publicar:
+
+```bash
+npm run preview   # serve dist/ em http://localhost:4173
+```
+
+---
+
+## Deploy
+
+A pasta `dist/` pode ser servida por qualquer servidor HTTP estático. Este repositório inclui um `nginx.conf` pronto para uso.
+
+### Com nginx (Ubuntu/Debian)
+
+```bash
+# 1. Instalar o nginx
+sudo apt update && sudo apt install -y nginx
+
+# 2. Copiar os arquivos do build para o document root
+sudo cp -r dist/* /var/www/html/
+
+# 3. Substituir a configuração padrão pelo nginx.conf deste repositório
+sudo cp nginx.conf /etc/nginx/nginx.conf
+
+# 4. Verificar se a configuração está correta
+sudo nginx -t
+
+# 5. Recarregar o nginx
+sudo systemctl reload nginx
+```
+
+A aplicação estará disponível em **http://&lt;ip-do-servidor&gt;**.
